@@ -6,7 +6,7 @@ function sumOfNumbers(numbers){
      sum = sum + number;
     }
     return sum;
-}
+} 
 
 const numbs = [ 1, 2, 3, 4];
 const sum = sumOfNumbers(numbs);
