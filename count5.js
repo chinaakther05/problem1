@@ -1,69 +1,89 @@
-function countVowels(str) {
-  let count = 0;
-  let vowels = "aeiou";
+//Count Vowels in a String
 
-  for (let i = 0; i < str.length; i++) {
-    if (vowels.includes(str[i].toLowerCase())) {
-      count++;
-    }
+const vawels = ["a", "e", "i", "o", "u"]
+function countVowels(sentence) {
+  let count = 0;
+  const letters = Array.from(sentence);
+
+letters.forEach(function(vawel){
+  if(vawels.includes(vawel)){
+    count++;
   }
+})
   return count;
 }
 
 console.log(countVowels("programming"));
 
-//Find Even Numbers in an Array
-function findEvenNumbers(numbers) {
-  const evenNumbers = [];
 
-  for (const num of numbers) {
-    if (num % 2 === 0) {
-      evenNumbers.push(num);
+
+//Find Even Numbers in an Array
+function findEvenNumbers(arr) {
+  let evens = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      evens = [...evens, arr[i]];
     }
   }
 
-  return evenNumbers;
+  return evens;
 }
 
-console.log(findEvenNumbers([1, 2, 3, 4, 5, 6]));
+
+const numbers = [1, 2, 3, 4, 5, 6];
+console.log(findEvenNumbers(numbers));
 
 
 // Find the Factorial of a Number
-function factorial(n) {
-  let result = 1;
+function findFactorial(n) {
+  let answer = 1;
 
   for (let i = 1; i <= n; i++) {
-    result *= i; 
+    answer *= i; 
   }
 
-  return result;
+  return answer;
 }
 
-console.log(factorial(5));
+console.log(findFactorial(5)); 
 
-// PingPong Challenge
+
+
+// PingPong Challenge 
 function pingPong() {
-  for (let i = 1; i <= 20; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      console.log("PingPong");
-    } else if (i % 3 === 0) {
-      console.log("Ping");
-    } else if (i % 5 === 0) {
-      console.log("Pong");
-    } else {
-      console.log(i);
-    }
+  let i = 1;
+
+  while (i <= 20) {
+    let result = "";
+
+    if (i % 3 === 0) result += "Ping";
+    if (i % 5 === 0) result += "Pong";
+
+    console.log(result || i); 
+    i++;
   }
 }
 
 pingPong();
 
+
 //Check for Palindrome
-function isPalindrome(str) {
-  const reversed = str.split("").reverse().join("");
-  return str === reversed;
+function checkPalindrome(text) {
+  let reversedText = "";
+
+  
+  for (let i = text.length - 1; i >= 0; i--) {
+    reversedText += text[i];
+  }
+
+  if (text === reversedText) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-console.log(isPalindrome("madam"));  // true
-console.log(isPalindrome("hello"));  // false
+console.log(checkPalindrome("madam"));  
+console.log(checkPalindrome("hello"));  
 
